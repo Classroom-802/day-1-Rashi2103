@@ -1,0 +1,744 @@
+1. Sum upto n
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n, sum=0;
+    cout<<"Enter the value of n: "<<endl;
+    cin>>n;
+    sum = n*(n+1)/2;
+    cout<<"The sum upto n is: "<<sum;
+return 0;
+}
+2. Prime number
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int n;
+    bool flag = false;
+    cout<<"Enter the number to check: ";
+    cin>>n;
+    for(int i=2; i<=sqrt(n); i++)
+    {
+        if(n%i==0)
+        {
+            flag= true;
+
+        }
+    }
+    if(flag)
+    {
+        cout<<"The number given is not a prime number";
+    }
+    else
+    {
+        cout<<"The number given is a prime number";
+    }
+return 0;    
+}
+3. Odd number upto n
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the number: "<<endl;
+    cin>>n;
+    for(int i=1; i<=n;i++)
+    {
+        if(i%2!=0)
+        {
+            cout<<i<<" ";
+        }
+        
+    }
+return 0;    
+}
+4. Odd numbers sum upto n
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,sum=0; 
+    cout<<"Enter the num: "<<endl;
+    cin>>n;
+    for(int i=1; i<=n; i++)
+    {
+        if(i%2!=0)
+        {
+            sum= sum+i;
+        }
+    }
+    cout<<"The sum of all odd number upto n: "<<sum;
+return 0;    
+}
+5. Table of a number n
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the number: ";
+    cin>>n;
+    for(int i =1; i<=10; i++)
+    {
+        cout<<n<<"x"<<i<<"="<<n*i<<endl;
+    }
+return 0;    
+}
+6. Number of digits in a number
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,count=0;
+    cout<<"Enter the number: ";
+    cin>>n;
+    if(n==0)
+    {
+        count=1;
+    }
+    while(n>0)
+    {
+        n= n/10;
+        count++;
+    }
+    cout<<"The number of digits in the number is: "<<count;
+return 0;    
+}
+7. Revers of a number
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,temp=0,reversed=0; 
+    cout<<"Enter the number: ";
+    cin>>n;
+    if(n==0)
+    {
+        cout<<"The reversed number is:0";
+    }
+    while(n>0)
+    {
+        temp= n%10;
+        reversed= reversed*10+temp;
+        n=n/10;
+    }
+    cout<<"The reversed number is: "<<reversed;
+return 0;    
+}
+8.Greatest digit in a number.
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,temp=0,greatest=0;
+    cout<<"Enter the number: ";
+    cin>>n;
+    while(n>0)
+    {
+        temp= n%10;
+        if(temp>greatest)
+        {
+            greatest= temp;
+        }
+        n=n/10;
+        
+    }
+    cout<<"Greatest number is: "<<greatest;
+return 0;    
+}
+9. Palindrome number or not?
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n, reversed=0,temp=0;
+    cout<<"Enter the number: ";
+    cin>>n;
+    int original_num= n;
+    if (n < 0) 
+    {
+        cout << "The number is not a palindrome";
+        return 0;
+    }
+    while(n>0)
+    {
+        temp= n%10;
+        reversed= reversed*10 + temp;
+        n= n/10;
+    }
+    if(original_num == reversed)
+    {
+        cout<<"The number is a palindrome";
+    }
+    else
+    {
+        cout<<"The number is not a palindrome";
+    }
+return 0;    
+}
+10. Sum of digits of a number
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,sum=0,temp=0;
+    cout<<"Enter the number: ";
+    cin>>n;
+    if (n < 0) 
+    {
+        cout <<"The sum is 0";
+        return 0;
+    }
+    while(n>0)
+    {
+        temp= n%10;
+        sum= sum+ temp;
+        n= n/10;
+    }
+    cout<<"The sum is: "<<sum;
+return 0;    
+}
+11. Overloading for area of shapes
+#include<iostream>
+using namespace std;
+void area(float r)
+{
+    cout<<"Area of the circle is: "<<3.14*r*r<<endl;
+}
+void area(int l, int b)
+{
+    cout<<"Area of the rectangle is: "<<l*b<<endl;
+}
+void area(double b, double h)
+{
+    cout<<"Area of triangle: "<<0.5*b*h<<endl;
+}
+int main()
+{
+    area(5);
+    area(3,10);
+    area(3.5, 7.5);
+return 0;    
+}
+12. Overloading in hierarchial structure.
+#include<iostream>
+using namespace std;
+void salary(int stipend)
+{
+    cout<<"Salary of the Intern: "<<stipend<<endl;
+}
+void salary(int b_salary, int b1)
+{
+    cout<<"Salary of the Employee: "<<b_salary+b1<<endl;
+}
+void salary(int b_salary, int b2, int incentive)
+{
+    cout<<"Salary of the Manager: "<<b_salary+b2+incentive<<endl;
+}
+int main()
+{
+    int stipend,b1_salary,b1,b2_salary,b2,incentive;
+    cout<<"Enter the stipend for intern: "<<endl;
+    cin>>stipend;
+    cout<<"Enter the salary and bonus for Employee: "<<endl;
+    cin>>b1_salary>>b1;
+    cout<<"Enter the salary, bonus, incentives for Manager:"<<endl;
+    cin>>b2_salary>>b2>>incentive;
+    salary(stipend);
+    salary(b1_salary, b1);
+    salary(b2_salary,b2,incentive);
+return 0;    
+}
+13.Encapsulation with employee details
+#include<iostream>
+#include<string>
+using namespace std;
+class Employee
+{
+    private: 
+      int emp_id;
+      string emp_name;
+      float emp_salary;
+    
+    public: 
+    void values(int id, string name, float salary)
+      {
+          emp_id=id;
+          emp_name=name;
+          emp_salary= salary;
+      }
+    void display()
+      {
+          cout<<"Employee ID: "<<emp_id<<endl;
+          cout<<"Name: "<<emp_name<<endl;
+          cout<<"Salary: "<<emp_salary<<endl;
+      }
+      
+};
+int main()
+{
+    cout<<"Employee Details: "<<endl;
+    Employee obj;
+    obj.values(101, "Rashi",10000);
+    obj.display();
+return 0;  
+}
+14. Inheritance with Student and result classes.
+#include <iostream>
+#include <string>
+using namespace std;
+class Student {
+protected:  
+    int roll_num;
+    string student_name;
+public:
+    void display(int roll, string name) {
+        roll_num = roll;
+        student_name = name;
+        cout << "Roll Number: " << roll_num << endl;
+        cout << "Student Name: " << student_name << endl;
+    }
+};
+class Result : public Student {
+    int m1, m2, m3;
+
+public:
+    void calculate(int mark1, int mark2, int mark3) {
+        m1 = mark1;
+        m2 = mark2;
+        m3 = mark3;
+
+        int total = m1 + m2 + m3;
+        float percentage = (total / 300.0) * 100;
+
+        cout << "Marks: " << m1 << ", " << m2 << ", " << m3 << endl;
+        cout << "Total Marks: " << total << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+int main() {
+    Result obj;
+
+    obj.display(101, "John Doe");  
+    obj.calculate(85, 90, 80);    
+
+    return 0;
+}
+15.Polymorphism with Shape Area Calculation
+#include <iostream>
+using namespace std;
+class Shape {
+public:
+    virtual double calculateArea() = 0; 
+    virtual void displayArea() {
+        cout << "The area is: " << calculateArea() << endl;
+    }
+    virtual ~Shape() {} 
+};
+
+class Circle : public Shape {
+    double radius;
+public:
+    void setRadius(double r) {
+        radius = r;
+    }
+    double calculateArea() override {
+        return 3.14159 * radius * radius;
+    }
+    void displayArea() override {
+        cout << "Circle Area: " << calculateArea() << endl;
+    }
+};
+class Rectangle : public Shape {
+    double length, breadth;
+public:
+    void setDimensions(double l, double b) {
+        length = l;
+        breadth = b;
+    }
+    double calculateArea() override {
+        return length * breadth;
+    }
+    void displayArea() override {
+        cout << "Rectangle Area: " << calculateArea() << endl;
+    }
+};
+class Triangle : public Shape {
+    double base, height;
+public:
+    void setDimensions(double b, double h) {
+        base = b;
+        height = h;
+    }
+    double calculateArea() override {
+        return 0.5 * base * height;
+    }
+    void displayArea() override {
+        cout << "Triangle Area: " << calculateArea() << endl;
+    }
+};
+int main() {
+    Circle circle;
+    circle.setRadius(5.0); 
+    Rectangle rectangle;
+    rectangle.setDimensions(4.0, 6.0); 
+    Triangle triangle;
+    triangle.setDimensions(3.0, 7.0); 
+    Shape* shapes[3] = { &circle, &rectangle, &triangle };
+    for (int i = 0; i < 3; ++i) {
+        shapes[i]->displayArea();
+    }
+    return 0;
+}
+16.Implementing polymorphism for shape hierachies.
+#include <iostream>
+using namespace std;
+
+// Base class Shape
+class Shape {
+public:
+    virtual void calculateArea() = 0; // Pure virtual function
+    virtual ~Shape() {} // Virtual destructor
+};
+
+// Derived class Circle
+class Circle : public Shape {
+    double radius;
+public:
+    void input() {
+        cout << "Enter radius: ";
+        cin >> radius;
+    }
+    void calculateArea() override {
+        cout << "Circle Area: " << 3.14159 * radius * radius << endl;
+    }
+};
+
+// Derived class Rectangle
+class Rectangle : public Shape {
+    double length, breadth;
+public:
+    void input() {
+        cout << "Enter length and breadth: ";
+        cin >> length >> breadth;
+    }
+    void calculateArea() override {
+        cout << "Rectangle Area: " << length * breadth << endl;
+    }
+};
+
+// Derived class Triangle
+class Triangle : public Shape {
+    double base, height;
+public:
+    void input() {
+        cout << "Enter base and height: ";
+        cin >> base >> height;
+    }
+    void calculateArea() override {
+        cout << "Triangle Area: " << 0.5 * base * height << endl;
+    }
+};
+
+int main() {
+    Shape* shape = nullptr;
+    int choice;
+
+    cout << "Choose a shape to calculate area:\n";
+    cout << "1. Circle\n2. Rectangle\n3. Triangle\nEnter your choice: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        Circle circle;
+        circle.input();
+        shape = &circle;
+    } else if (choice == 2) {
+        Rectangle rectangle;
+        rectangle.input();
+        shape = &rectangle;
+    } else if (choice == 3) {
+        Triangle triangle;
+        triangle.input();
+        shape = &triangle;
+    } else {
+        cout << "Invalid choice!" << endl;
+        return 1;
+    }
+
+    // Calculate and display area
+    shape->calculateArea();
+
+    return 0;
+}
+17.Library System
+#include <iostream>
+#include <string>
+using namespace std;
+class Book {
+public:
+    string title;
+    string author;
+    string isbn;
+
+    Book(string t, string a, string i) {
+        title = t;
+        author = a;
+        isbn = i;
+    }
+
+    void showBook() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "ISBN: " << isbn << endl;
+    }
+};
+
+class Borrower {
+public:
+    string name;
+    string borrowerID;
+    string borrowedBook;
+
+    Borrower(string n, string id) {
+        name = n;
+        borrowerID = id;
+        borrowedBook = "";
+    }
+
+    void borrowBook(string bookTitle) {
+        if (borrowedBook == "") {
+            borrowedBook = bookTitle;
+            cout << name << " has borrowed the book: " << bookTitle << endl;
+        } else {
+            cout << name << " already has a book: " << borrowedBook << endl;
+        }
+    }
+
+    void returnBook() {
+        if (borrowedBook != "") {
+            cout << name << " has returned the book: " << borrowedBook << endl;
+            borrowedBook = "";
+        } else {
+            cout << name << " has no borrowed books to return." << endl;
+        }
+    }
+
+    void showBorrower() {
+        cout << "Borrower Name: " << name << endl;
+        cout << "Borrower ID: " << borrowerID << endl;
+        if (borrowedBook != "") {
+            cout << "Currently Borrowed Book: " << borrowedBook << endl;
+        } else {
+            cout << "No borrowed books." << endl;
+        }
+    }
+};
+
+class Library : public Book, public Borrower {
+public:
+    Library(string bookTitle, string bookAuthor, string bookIsbn, string borrowerName, string borrowerID) 
+        : Book(bookTitle, bookAuthor, bookIsbn), Borrower(borrowerName, borrowerID) {}
+
+    void borrow() {
+        showBook();
+        borrowBook(title);
+    }
+
+    void returnBack() {
+        returnBook();
+    }
+
+    void showInfo() {
+        cout << "\nLibrary Information:" << endl;
+        showBook();
+        showBorrower();
+    }
+};
+
+int main() {
+    Library myLibrary("The Alchemist", "Paulo Coelho", "978-0061122415", "Alice", "B100");
+    myLibrary.showInfo();
+    myLibrary.borrow();
+    myLibrary.borrow();
+    myLibrary.returnBack();
+    myLibrary.showInfo();
+return 0;
+}
+18. Matrix multiplication using function Overloading
+#include <iostream>
+using namespace std;
+
+// Function to perform Matrix Addition
+void operate(int matrix1[2][2], int matrix2[2][2], int result[2][2], char operation) {
+    if (operation == '+') {
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+    }
+}
+
+// Function to perform Matrix Multiplication
+void operate(int matrix1[2][3], int matrix2[3][2], int result[2][2]) {
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < 3; k++) {
+                result[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+}
+
+// Function to print a matrix
+void printMatrix(int matrix[2][2]) {
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    // Example matrices for addition (2x2)
+    int matrix1[2][2] = {{1, 2}, {3, 4}};
+    int matrix2[2][2] = {{5, 6}, {7, 8}};
+    int result[2][2];
+
+    // Matrix Addition
+    cout << "Matrix Addition:" << endl;
+    operate(matrix1, matrix2, result, '+');
+    printMatrix(result);
+
+    // Example matrices for multiplication (2x3 and 3x2)
+    int matrix3[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    int matrix4[3][2] = {{7, 8}, {9, 10}, {11, 12}};
+
+    cout << "\nMatrix Multiplication:" << endl;
+    operate(matrix3, matrix4, result);
+    printMatrix(result);
+
+    return 0;
+}
+19. Banking transactions 
+#include <iostream>
+using namespace std;
+class Account {
+public:
+    double balance;
+    Account(double initialBalance) : balance(initialBalance) {}
+    virtual void calculate() {
+        cout << "No interest or fee for base account." << endl;
+    }
+    void displayBalance() {
+        cout << "Balance: $" << balance << endl;
+    }
+};
+class SavingsAccount : public Account {
+public:
+    double interestRate;
+    int years;           
+    SavingsAccount(double initialBalance, double rate, int time) : Account(initialBalance), interestRate(rate), years(time) {}
+    void calculate() override {
+        double interest = balance * interestRate * years;
+        balance += interest;
+        cout << "Interest added: $" << interest << endl;
+    }
+};
+
+class CurrentAccount : public Account {
+public:
+    double maintenanceFee;  
+    CurrentAccount(double initialBalance, double fee) : Account(initialBalance), maintenanceFee(fee) {}
+    void calculate() override {
+        balance -= maintenanceFee;
+        if (balance < 0) balance = 0;  // Prevent negative balance
+        cout << "Maintenance fee deducted: $" << maintenanceFee << endl;
+    }
+};
+
+int main() {
+    SavingsAccount savings(1000, 0.05, 2); 
+    CurrentAccount current(1000, 10);      
+    savings.displayBalance();
+    current.displayBalance();
+
+    cout << "\nCalculating interest for Savings Account..." << endl;
+    savings.calculate();
+    savings.displayBalance();  // Display updated balance
+
+    cout << "\nCalculating fee for Current Account..." << endl;
+    current.calculate();
+    current.displayBalance();  // Display updated balance
+
+    return 0;
+}
+20. Employment management via virtual function.
+#include <iostream>
+#include <string>
+using namespace std;
+class Employee {
+protected:
+    string name;
+    int id;
+    double salary;
+
+public:
+    Employee(string n, int i, double s) : name(n), id(i), salary(s) {}
+    virtual void calculateEarnings() {
+        cout << "Total Earnings for " << name << " (ID: " << id << "): $" << salary << endl;
+    }
+    void displayDetails() {
+        cout << "Name: " << name << endl;
+        cout << "ID: " << id << endl;
+        cout << "Basic Salary: $" << salary << endl;
+    }
+};
+class Manager : public Employee {
+private:
+    double performanceRating;
+
+public:
+    Manager(string n, int i, double s, double pr) : Employee(n, i, s), performanceRating(pr) {}
+    void calculateEarnings() override {
+        double bonus = salary * performanceRating; // Bonus based on performance rating
+        double totalEarnings = salary + bonus;
+        cout << "Total Earnings for Manager " << name << " (ID: " << id << "): $" << totalEarnings << endl;
+    }
+};
+class Developer : public Employee {
+private:
+    int overtimeHours;
+    double overtimeRate;
+
+public:
+    Developer(string n, int i, double s, int oh, double orate) 
+        : Employee(n, i, s), overtimeHours(oh), overtimeRate(orate) {}
+    void calculateEarnings() override {
+        double overtimeCompensation = overtimeHours * overtimeRate;
+        double totalEarnings = salary + overtimeCompensation;
+        cout << "Total Earnings for Developer " << name << " (ID: " << id << "): $" << totalEarnings << endl;
+    }
+};
+int main() {
+    Manager manager("Alice", 101, 5000, 0.20); 
+    Developer developer("Bob", 102, 4000, 10, 50); 
+    cout << "Manager Details:" << endl;
+    manager.displayDetails();
+    manager.calculateEarnings();
+    cout << endl;
+    cout << "Developer Details:" << endl;
+    developer.displayDetails();
+    developer.calculateEarnings();
+
+    return 0;
+}
+
+
+
